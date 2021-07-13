@@ -45,7 +45,20 @@ const timer = (() => {
       currentTime = ct;
     };
     timerId = setInterval(timeFlies, 100);
+    $startResumeStopBtn.textContent = 'STOP';
+    currentStatus = STATUS_START;
+    $lapBtn.removeAttribute('disabled');
+    $resetBtn.removeAttribute('disabled');
   };
+
+  const stop = () => {
+    clearInterval(timerId);
+    timerId = null;
+  };
+
+	const resume = () => {
+		timerId = setInterval(timeFlies, 100);
+	}
 
   $startResumeStopBtn.onclick = start;
 })();
