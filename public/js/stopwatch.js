@@ -107,3 +107,18 @@ const lap = (() => {
     },
   };
 })();
+
+const reset = (() => {
+  const $resetBtn = document.querySelector('reset-btn');
+
+  $resetBtn.onclick = () => {
+    currentTime = {
+      hour: 0,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    };
+
+    lap.clear();
+  };
+})();
