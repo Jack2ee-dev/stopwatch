@@ -108,12 +108,27 @@ const lap = (() => {
     clear() {
       setLaps([]);
       this.toggleDisabled();
-    }
+    },
   };
 })();
 
 const reset = (() => {
   const $resetBtn = document.querySelector('.reset-btn');
+  const $stopwatchTime = document.querySelector('.stopwatch-time');
+  const $startResumeStopBtn = document.querySelector('.start-resume-stop-btn');
+
+  const updateTime = () => {
+    const format = n => (n < 10 ? '0' + n : n + '');
+    const { hour, minute, second, millisecond } = currentTime;
+
+    $stopwatchTime.textContent = `${format(hour)}:${format(minute)}:${format(
+      second
+    )}.${millisecond}`;
+  };
+
+  const toggleDisabled = () => {
+    $resetBtn.disabled = !$resetBtn.disabled;
+  };
 
   $resetBtn.onclick = () => {
     currentTime = {
@@ -123,6 +138,13 @@ const reset = (() => {
       millisecond: 0,
     };
 
+    updateTime();
     lap.clear();
+    toggleDisabled();
+    $startResumeStopBtn.textContent = 'START';
+  };
+
+  return {
+    toggleDisabled,
   };
 })();
