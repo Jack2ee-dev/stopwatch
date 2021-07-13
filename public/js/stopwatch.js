@@ -5,10 +5,12 @@ let currentTime = {
   millisecond: 0,
 };
 
-const start = (() => {
+const timer = (() => {
   const STATUS_INIT = 'INIT';
   const STATUS_START = 'START';
   const STATUS_STOP = 'STOP';
 
   let currentStatus = STATUS_INIT;
+
+	
 })();
