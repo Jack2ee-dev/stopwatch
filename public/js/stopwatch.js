@@ -21,7 +21,7 @@ const timer = (() => {
   const timerAction = () => {
     const timeFlies = () => {
       const updateTime = () => {
-        const format = (n) => (n < 10 ? '0' + n : n + '');
+        const format = n => (n < 10 ? '0' + n : n + '');
         const { hour, minute, second, millisecond } = currentTime;
 
         $stopwatchTime.textContent = `${format(hour)}:${format(
@@ -80,19 +80,19 @@ const timer = (() => {
 })();
 
 const lap = (() => {
-  const $lapBtn = document.querySelector(".lap-btn");
-  const $stopwatchTime = document.querySelector(".stopwatch-time");
-  const $stopwatchLaps = document.querySelector(".stopwatch-laps");
+  const $lapBtn = document.querySelector('.lap-btn');
+  const $stopwatchTime = document.querySelector('.stopwatch-time');
+  const $stopwatchLaps = document.querySelector('.stopwatch-laps');
   let laps = [];
 
   const render = () => {
     $stopwatchLaps.innerHTML = laps.reduce((html, lap) => {
       html += `<li>${lap}</li>`;
       return html;
-    }, "");
+    }, '');
   };
 
-  const setLaps = (newLaps) => {
+  const setLaps = newLaps => {
     laps = newLaps;
     render();
   };
