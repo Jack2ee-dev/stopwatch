@@ -6,16 +6,11 @@ let currentTime = {
 };
 
 const timer = (() => {
-  const STATUS_INIT = 'INIT';
-  const STATUS_START = 'START';
-  const STATUS_STOP = 'STOP';
-
   const $stopwatchTime = document.querySelector('.stopwatch-time');
   const $lapBtn = document.querySelector('.lap-btn');
   const $startResumeStopBtn = document.querySelector('.start-resume-stop-btn');
   const $resetBtn = document.querySelector('.reset-btn');
 
-  let currentStatus = STATUS_INIT;
   let timerId;
 
   (() => {
