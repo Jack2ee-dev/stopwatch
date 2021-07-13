@@ -105,11 +105,15 @@ const lap = (() => {
     toggleDisabled() {
       $lapBtn.disabled = !$lapBtn.disabled;
     },
+    clear() {
+      setLaps([]);
+      this.toggleDisabled();
+    }
   };
 })();
 
 const reset = (() => {
-  const $resetBtn = document.querySelector('reset-btn');
+  const $resetBtn = document.querySelector('.reset-btn');
 
   $resetBtn.onclick = () => {
     currentTime = {
